@@ -1,3 +1,9 @@
+// code by Deeptimaan Krishna Jadaun (12213381)
+// code by Deeptimaan Krishna Jadaun (12213381)
+// code by Deeptimaan Krishna Jadaun (12213381)
+// code by Deeptimaan Krishna Jadaun (12213381)
+// code by Deeptimaan Krishna Jadaun (12213381)
+// code by Deeptimaan Krishna Jadaun (12213381)
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -43,6 +49,10 @@ int main()
     system("cls");
     gotoxy(15,8);
     printf("<--:IPL CRICKET TOURNAMENT SCHEDULAR:-->");
+    gotoxy(33,13);
+    printf("By:-");
+    gotoxy(15,14);
+    printf("Deeptimaan Krishna Jadaun (12213381)");
     gotoxy(19,15);
     printf("Press any key to continue.");
     getch();
