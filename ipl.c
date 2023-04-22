@@ -1,9 +1,4 @@
-// code by Deeptimaan Krishna Jadaun (12213381)
-// code by Deeptimaan Krishna Jadaun (12213381)
-// code by Deeptimaan Krishna Jadaun (12213381)
-// code by Deeptimaan Krishna Jadaun (12213381)
-// code by Deeptimaan Krishna Jadaun (12213381)
-// code by Deeptimaan Krishna Jadaun (12213381)
+
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -19,6 +14,22 @@ void Schedule();
 void modify();
 void replaceAll(char *str, const char *oldWord, const char *newWord);
 void deleterec();
+void red () {
+  printf("\033[1;31m");
+}
+
+void yellow() {
+  printf("\033[1;33m");
+}
+void green(){
+    printf("\033[0;32m");
+}
+void cyan(){
+    printf("\033[0;36m");
+}
+void reset () {
+  printf("\033[0m");
+}
 #define BUFFER_SIZE 1000
 struct student
 {
@@ -47,14 +58,13 @@ void free_array(char* a[30]){
 int main()
 {
     system("cls");
+    green();
     gotoxy(15,8);
     printf("<--:IPL CRICKET TOURNAMENT SCHEDULAR:-->");
     gotoxy(33,13);
-    printf("By:-");
-    gotoxy(15,14);
-    printf("Deeptimaan Krishna Jadaun (12213381)");
     gotoxy(19,15);
     printf("Press any key to continue.");
+    reset();
     getch();
     menu();
     return 0;  
@@ -62,41 +72,48 @@ int main()
 void menu()
 {
     int choice;
+    cyan();
     system("cls");
     gotoxy(10,3);
     printf("<--:MENU:-->");
     gotoxy(10,5);
     printf("Plaese Enter Valid Button.");
     gotoxy(10,7);
-    printf("1 : Add record.");
+    printf("1 : Add Team.");
     gotoxy(10,8);
-    printf("2 : View record.");
+    printf("2 : View Team.");
     gotoxy(10,9);
     printf("3 : View Schdule.");
     gotoxy(10,10);
-    printf("4 : Modify record.");
+    printf("4 : Modify Team.");
     gotoxy(10,11);
-    printf("5 : Delete.");
+    printf("5 : Delete Team.");
     gotoxy(10,12);
     printf("6 : Exit.");
     gotoxy(10,15);
     printf("Enter your choice.");
+    reset();
     scanf("%d",&choice);
     switch(choice)
     {
     case 1:
+        green();
         add();
         break;
     case 2:
+        green();
         view();
         break;
     case 3:
+        green();
         Schedule();
         break;
     case 4:
+        green();
         modify();
         break;
     case 5:
+        green();
         deleterec();
         getch();
         menu();
@@ -107,6 +124,7 @@ void menu()
 
     default:
         gotoxy(10,17);
+        red();
         printf("Invalid Choice.");
     }
 }
@@ -118,6 +136,7 @@ void add()
     char another ='y';
     system("cls");
     if(fp == NULL){
+        red();
         printf("Error opening file");
     }
     while (another=='y')
@@ -133,7 +152,8 @@ void add()
        fprintf(fp,std.name);
        fprintf(fp, "\n");
        gotoxy(10,15);
-       printf("Want to add of another record? Then press 'y' else 'n'.");
+       cyan();
+       printf("Want to add of another Team? Then press 'y' else 'n'.");
        fflush(stdin);
        another = getch();
        system("cls");
@@ -160,6 +180,7 @@ void view()
     fp = fopen("record.txt","r+");
     if(fp == NULL){
         gotoxy(10,8);
+        red();
         printf("Error opening file.");
         exit(1);
     }
@@ -173,7 +194,9 @@ void view()
    }
     fclose(fp);
     gotoxy(10,j+3);
+    red();
     printf("Press any key to continue.");
+    reset();
     getch();
     menu();
 }
@@ -203,7 +226,9 @@ void Schedule(){
             count++;
         }
     }
+    red();
     printf("\n\n\nPress any key to continue.");
+    reset();
     free_array(a);
     getch();
     menu();
@@ -228,6 +253,7 @@ void modify()
     fTemp = fopen("replace.tmp", "w"); 
     if (fPtr == NULL || fTemp == NULL)
     {   gotoxy(10,6);
+        red();
         printf("\nUnable to open file.\n");
         printf("Please check whether file exists and you have read/write privilege.\n");
         exit(EXIT_SUCCESS);
@@ -242,9 +268,12 @@ void modify()
     remove(path);
     rename("replace.tmp", path);
     gotoxy(10,6);
+    green();
     printf("\nSuccessfully replaced Team Name of %s with %s", oldWord, newWord);
     gotoxy(10,8);
+    cyan();
     printf("\nPress any key.....");
+    reset();
     getch();
     menu();
 }
@@ -280,6 +309,7 @@ void deleterec()
     fp = fopen(file_name, "r");
     if (fp == NULL) {
         gotoxy(10,5);
+        red();
         printf("Error opening file!");
         exit(1);
     }
@@ -288,6 +318,7 @@ void deleterec()
     temp_fp = fopen(temp_file_name, "w");
     if (temp_fp == NULL) {
         gotoxy(10,5);
+        red();
         printf("Error creating temporary file!");
         exit(1);
     }
@@ -305,16 +336,19 @@ void deleterec()
 
     if (remove(file_name) != 0) {
         gotoxy(10,5);
+        red();
         printf("Error deleting file!");
         exit(1);
     }
 
     if (rename(temp_file_name, file_name) != 0) {
         gotoxy(10,5);
+        red();
         printf("Error renaming file!");
         exit(1);
     }
     gotoxy(10,5);
+    green();
     printf("Team '%s' deleted successfully from file '%s'", str, file_name);
 }
 void gotoxy(int x,int y)
