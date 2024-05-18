@@ -72,7 +72,7 @@ This project is licensed under the MIT License.
 
 For any questions or suggestions, please contact:
 
-- Your Name: [Deeptimaan K. Jadaun](mailto:deeptimaankrishnajadaun@gmail.com)
+- Name: [Deeptimaan K. Jadaun](mailto:deeptimaankrishnajadaun@gmail.com)
 - GitHub: [deeptimaan-k](https://github.com/deeptimaan-k)
 
 ---
